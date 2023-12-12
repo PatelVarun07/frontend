@@ -1,3 +1,7 @@
+html , body{
+  width:100%;
+  height:100%
+}
 .App {
   text-align: center;
 }
@@ -35,4 +39,72 @@
   to {
     transform: rotate(360deg);
   }
+}
+.active{
+  color:red;
+}
+span{
+  font-size:350px;
+  
+  color:red;
+  position:relative;
+  
+}
+span::before{
+  content: attr(data-heading);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: -webkit-gradient(linear,left top,left bottom,from(#fc6767),to(#ec008c));
+  background: linear-gradient(180deg,#fc6767,#ec008c);
+  -webkit-background-clip: text;
+  color: transparent;
+  mix-blend-mode: multiply;
+  background-size: 200%;
+}
+.text-center{
+  text-align:center;
+}
+img{
+  width:100%;
+  height:100%
+}
+.modal-1{
+  position : absolute ;
+  width:100%;
+  height:100vh;
+  backdrop-filter: blur(8px);
+  /* -webkit-filter: blur(8px); */
+  top:0;
+  left:0;
+  z-index:100;
+  
+}
+.inner-html{
+  
+  max-width:400px;
+  max-height:400px;
+  margin:auto;
+  background-color:red;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  margin-top:15px;
+
+}
+.inner-html .row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hidden{
+  display:none
+}
+.show{
+  display:block;
+}
+.disable{
+  display:none;
 }
