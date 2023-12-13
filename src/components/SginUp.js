@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const Host = "http://192.168.1.143:5000"
+const Host = "http://192.168.1.143:5001"
 export default function SginUp() {
 	const navigate = useNavigate();
 	

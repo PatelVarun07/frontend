@@ -11,7 +11,7 @@ function Home() {
 		username: "",
 		verification: "",
 	});
-	const { notes, AddNote, DeleteNote, EditNote, FetchNotes } = context;
+	const { notes, setNotes, AddNote, DeleteNote, EditNote, FetchNotes } = context;
 	const [TitleImage, setTitleImage] = useState();
 	const [GaleryImage, setGaleryImage] = useState();
 	const [NewNote, setNewNote] = useState({
@@ -112,6 +112,21 @@ function Home() {
 			verification: json.verification,
 		});
 	};
+	const search = async (e)=>{
+		console.log(e.target.value)
+		const SearchValue = e.target.value;
+		const Searchresponse = await fetch(`http://localhost:5001/api/notes/queries?search=${SearchValue}`, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+				authtoken: AuthToken,
+			},
+		});
+		let json = await Searchresponse.json();
+		console.log(json)
+		setNotes(json)
+	}
+
 	useEffect(() => {
 		if (AuthToken) {
 			FetchNotes(AuthToken);
@@ -220,6 +235,7 @@ function Home() {
 					</form>
 				</div>
 			</div>
+			<input type="text" onChange={search} />
 			<div className="container mt-5">
 				<form className="row g-3">
 					<div className="col-md-4">

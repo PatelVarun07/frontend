@@ -11,7 +11,7 @@ function OTP() {
      console.log({ AuthToken });
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const response = await fetch(`http://localhost:5000/api/auth/emailverification`, {
+		const response = await fetch(`http://localhost:5001/api/auth/emailverification`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
